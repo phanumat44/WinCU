@@ -3,8 +3,8 @@
 ![Go](https://img.shields.io/badge/Go-1.20+-00ADD8?logo=go&logoColor=white)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Release](https://img.shields.io/github/v/release/yourusername/wincu?include_prereleases)
-![Downloads](https://img.shields.io/github/downloads/yourusername/wincu/total)
+![Release](https://img.shields.io/github/v/release/phanumat44/wincu?include_prereleases)
+![Downloads](https://img.shields.io/github/downloads/phanumat44/wincu/total)
 
 🚀 **A fast, safe, and modern Windows cleaner CLI written in Go**
 
