@@ -3,14 +3,14 @@
 
 [Setup]
 AppName=WinCU
-AppVersion=1.0.1
+AppVersion=1.1.0
 DefaultDirName={sd}\wincu
 DefaultGroupName=WinCU
 UninstallDisplayIcon={app}\wincu.exe
 Compression=lzma2
 SolidCompression=yes
 OutputDir=.
-OutputBaseFilename=wincu_installer
+OutputBaseFilename=wincu-installer-v1.1.0
  SetupIconFile=assets\wincu.ico  
  WizardImageFile=assets\sideicon.bmp 
 

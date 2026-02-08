@@ -18,6 +18,7 @@ Designed with **speed**, **safety**, and **automation** in mind — perfect for 
 ## ✨ Features
 
 ### 🧹 Deep Cleaning
+
 - User Temp
 - Windows Temp
 - Prefetch
@@ -25,20 +26,24 @@ Designed with **speed**, **safety**, and **automation** in mind — perfect for 
 - Recycle Bin
 
 ### ⚡ High Performance
+
 - Concurrent worker pool
 - Optimized I/O for large directories
 - Scales with CPU threads
 
 ### 🛡️ Safety First
+
 - **Dry-run mode** to preview changes
 - Skips critical system paths automatically
 - Graceful handling of permission errors
 
 ### 🔐 Auto-Elevation (UAC)
+
 - Automatically requests Administrator privileges when required
 - Triggered only when using `--force`
 
 ### 🤖 Automation Ready
+
 - Optional **JSON output**
 - Script-friendly CLI design
 
@@ -55,6 +60,7 @@ wincu_installer.exe
 ```
 
 During installation:
+
 - ✅ Select **“Add to PATH”** to use `wincu` globally
 
 ---
@@ -71,6 +77,7 @@ No installation required.
 ### Option 3 — Build from Source
 
 **Requirements**
+
 - Go ≥ 1.20
 - Windows OS
 
@@ -126,18 +133,21 @@ wincu clean --all --force
 
 ## ⚙️ Command Flags
 
-| Flag              | Description                                             |
-| ----------------- | ------------------------------------------------------- |
-| `--all`           | Clean all supported targets                             |
-| `--temp`          | Clean User & Windows Temp                               |
-| `--recyclebin`    | Empty Recycle Bin                                       |
-| `--prefetch`      | Clean Prefetch files                                    |
-| `--update`        | Clean Windows Update Cache                              |
-| `--dry-run`       | Preview deletions without removing files                |
-| `--force`         | Force delete (Admin + read-only files)                  |
-| `--threads <n>`   | Number of concurrent workers                            |
-| `--json`          | Output logs in JSON format                               |
-| `--version`       | Show version information                                |
+| Flag            | Description                              |
+| --------------- | ---------------------------------------- |
+| `--all`         | Clean all supported targets              |
+| `--temp`        | Clean User & Windows Temp                |
+| `--recyclebin`  | Empty Recycle Bin                        |
+| `--prefetch`    | Clean Prefetch files                     |
+| `--update`      | Clean Windows Update Cache               |
+| `--chrome`      | Clean Google Chrome Cache                |
+| `--edge`        | Clean Microsoft Edge Cache               |
+| `--browser`     | Clean all browser caches                 |
+| `--dry-run`     | Preview deletions without removing files |
+| `--force`       | Force delete (Admin + read-only files)   |
+| `--threads <n>` | Number of concurrent workers             |
+| `--json`        | Output logs in JSON format               |
+| `--version`     | Show version information                 |
 
 ---
 

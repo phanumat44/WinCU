@@ -45,13 +45,13 @@ func log(level LogLevel, msg string, data any) {
 	var levelStr string
 	switch level {
 	case ERROR:
-		levelStr = "❌ "
+		levelStr = "❌"
 	case WARN:
-		levelStr = "⚠️ "
+		levelStr = "⚠️"
 	case DEBUG:
-		levelStr = "🔍 "
+		levelStr = "🔍"
 	default:
-		levelStr = "✅ "
+		levelStr = "✅"
 	}
 
 	if jsonOutput {
@@ -67,9 +67,9 @@ func log(level LogLevel, msg string, data any) {
 		// Standard text format
 		// [INFO] Message data...
 		if data != nil {
-			fmt.Printf("[%s] %s %v\n", levelStr, msg, data)
+			fmt.Printf("%s %s %v\n", levelStr, msg, data)
 		} else {
-			fmt.Printf("[%s] %s\n", levelStr, msg)
+			fmt.Printf("%s %s\n", levelStr, msg)
 		}
 	}
 }

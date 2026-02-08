@@ -1,3 +1,9 @@
+## [v1.1.0] - Unreleased
+
+### Added
+
+- **Browser Cleaning**: Support for clearing Google Chrome and Microsoft Edge caches (`--chrome`, `--edge`, `--browser`).
+
 ## [v1.0.1] - 2026-02-08
 
 ## Changed

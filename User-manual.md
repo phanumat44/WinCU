@@ -53,6 +53,9 @@ wincu clean [flags]
 - `--recyclebin`: Empty the Recycle Bin.
 - `--prefetch`: Clean Prefetch files.
 - `--update`: Clean Windows Update cache.
+- `--chrome`: Clean Google Chrome Cache.
+- `--edge`: Clean Microsoft Edge Cache.
+- `--browser`: Clean all browser caches (Chrome + Edge).
 - `--dry-run`: Simulate the cleaning process without deleting anything.
 - `--force`: Force delete read-only files. **Auto-Elevation**: If run without admin rights, this flag will trigger a UAC prompt to restart as Administrator.
 - `--threads <n>`: Set the number of concurrent deletion threads (default: CPU cores).

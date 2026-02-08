@@ -9,7 +9,7 @@ import (
 	"wincu/utils"
 )
 
-const Version = "1.0.1"
+const Version = "1.1.0"
 
 func main() {
 	if len(os.Args) < 2 {
@@ -29,6 +29,9 @@ func main() {
 	cleanPrefetch := cleanCmd.Bool("prefetch", false, "Clean Prefetch")
 	cleanUpdate := cleanCmd.Bool("update", false, "Clean Windows Update Cache")
 	cleanRecycle := cleanCmd.Bool("recyclebin", false, "Clean Recycle Bin")
+	cleanChrome := cleanCmd.Bool("chrome", false, "Clean Google Chrome Cache")
+	cleanEdge := cleanCmd.Bool("edge", false, "Clean Microsoft Edge Cache")
+	cleanBrowser := cleanCmd.Bool("browser", false, "Clean all browser caches")
 	cleanDryRun := cleanCmd.Bool("dry-run", false, "Simulate cleaning")
 	cleanThreads := cleanCmd.Int("threads", runtime.NumCPU(), "Number of threads")
 	cleanJson := cleanCmd.Bool("json", false, "Output in JSON format")
@@ -46,7 +49,7 @@ func main() {
 	// Actually, let's just check os.Args
 	for _, arg := range os.Args {
 		if arg == "--version" || arg == "-v" {
-			fmt.Println("wincu version 1.0.1")
+			fmt.Println("wincu version " + Version)
 			os.Exit(0)
 		}
 	}
@@ -99,8 +102,8 @@ func main() {
 			os.Exit(0) // Exit original process
 		}
 
-		if !*cleanAll && !*cleanTemp && !*cleanRecycle && !*cleanPrefetch && !*cleanUpdate {
-			fmt.Println("Please specify targets to clean (e.g., --all, --temp)")
+		if !*cleanAll && !*cleanTemp && !*cleanRecycle && !*cleanPrefetch && !*cleanUpdate && !*cleanChrome && !*cleanEdge && !*cleanBrowser {
+			fmt.Println("Please specify targets to clean (e.g., --all, --temp, --browser)")
 			cleanCmd.PrintDefaults()
 			os.Exit(1)
 		}
@@ -127,6 +130,12 @@ func main() {
 					selectedTargets = append(selectedTargets, t)
 				}
 				if *cleanRecycle && t.Name == "Recycle Bin" {
+					selectedTargets = append(selectedTargets, t)
+				}
+				if (*cleanChrome || *cleanBrowser) && t.Name == "Google Chrome Cache" {
+					selectedTargets = append(selectedTargets, t)
+				}
+				if (*cleanEdge || *cleanBrowser) && t.Name == "Microsoft Edge Cache" {
 					selectedTargets = append(selectedTargets, t)
 				}
 			}
@@ -168,6 +177,9 @@ func printUsage() {
 	fmt.Println("  --recyclebin   Clean Recycle Bin")
 	fmt.Println("  --prefetch     Clean Prefetch")
 	fmt.Println("  --update       Clean Windows Update Cache")
+	fmt.Println("  --chrome       Clean Google Chrome Cache")
+	fmt.Println("  --edge         Clean Microsoft Edge Cache")
+	fmt.Println("  --browser      Clean all browser caches")
 	fmt.Println("  --dry-run      Simulate cleaning")
 	fmt.Println("  --force        Force delete (elevate if needed)")
 	fmt.Println("  --threads <n>  Number of threads")

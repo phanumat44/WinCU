@@ -52,5 +52,17 @@ func GetTargets() []Target {
 			RequireAdmin: false, // Standard user can empty own recycle bin usually, but let's check.
 			Enabled:      true,
 		},
+		{
+			Name:         "Google Chrome Cache",
+			Path:         filepath.Join(userProfile, "AppData", "Local", "Google", "Chrome", "User Data", "Default", "Cache", "Cache_Data"),
+			RequireAdmin: false,
+			Enabled:      true,
+		},
+		{
+			Name:         "Microsoft Edge Cache",
+			Path:         filepath.Join(userProfile, "AppData", "Local", "Microsoft", "Edge", "User Data", "Default", "Cache", "Cache_Data"),
+			RequireAdmin: false,
+			Enabled:      true,
+		},
 	}
 }
