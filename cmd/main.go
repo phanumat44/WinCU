@@ -9,6 +9,8 @@ import (
 	"wincu/utils"
 )
 
+const Version = "1.0.1"
+
 func main() {
 	if len(os.Args) < 2 {
 		printUsage()
@@ -44,7 +46,7 @@ func main() {
 	// Actually, let's just check os.Args
 	for _, arg := range os.Args {
 		if arg == "--version" || arg == "-v" {
-			fmt.Println("wincu version 1.0")
+			fmt.Println("wincu version 1.0.1")
 			os.Exit(0)
 		}
 	}

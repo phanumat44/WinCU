@@ -42,14 +42,16 @@ func log(level LogLevel, msg string, data any) {
 	mu.Lock()
 	defer mu.Unlock()
 
-	levelStr := "INFO"
+	var levelStr string
 	switch level {
-	case WARN:
-		levelStr = "WARN"
 	case ERROR:
-		levelStr = "ERROR"
+		levelStr = "❌ "
+	case WARN:
+		levelStr = "⚠️ "
 	case DEBUG:
-		levelStr = "DEBUG"
+		levelStr = "🔍 "
+	default:
+		levelStr = "✅ "
 	}
 
 	if jsonOutput {

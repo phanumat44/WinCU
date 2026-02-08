@@ -3,7 +3,7 @@
 
 [Setup]
 AppName=WinCU
-AppVersion=1.0
+AppVersion=1.0.1
 DefaultDirName={sd}\wincu
 DefaultGroupName=WinCU
 UninstallDisplayIcon={app}\wincu.exe
