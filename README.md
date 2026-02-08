@@ -69,7 +69,7 @@ No installation required.
 - Windows OS
 
 ```powershell
-git clone https://github.com/yourusername/wincu.git
+git clone https://github.com/phanumat44/wincu.git
 cd wincu
 go build -ldflags="-s -w" -o wincu.exe cmd/main.go
 ```
