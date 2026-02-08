@@ -1,37 +1,72 @@
-# WinCU (Windows Cleaner Utility)
+# WinCU — Windows Cleaner Utility
 
-🚀 **A fast Windows cleaner CLI written in Go**  
-Supports cache, temp, recycle bin, Windows Update cleanup.  
-**Multi-threaded & safe by default.**
+🚀 **A fast, safe, and modern Windows cleaner CLI written in Go**
 
-![wincu](assets/wincu.jpg)
+WinCU is a high-performance command-line utility for cleaning junk files on Windows.  
+Designed with **speed**, **safety**, and **automation** in mind — perfect for power users, sysadmins, and scripts.
 
-## Features
+![WinCU Banner](assets/wincu.jpg)
 
-- **Deep Cleaning**: Removes User Temp, Windows Temp, Prefetch, Windows Update Cache, and empties the Recycle Bin.
-- **Concurrency**: Uses a worker pool to delete files in parallel for maximum speed.
-- **Safety First**:
-  - Dry-run mode to preview changes.
-  - Skips critical system files.
-  - Handles permission errors gracefully.
-- **Auto-Elevation**: Automatically requests Administrator privileges (UAC) when needed (e.g., using `--force`).
-- **Automation Ready**: Supports JSON output for easy integration with scripts.
+---
 
-## Installation
+## ✨ Features
 
-### Option 1: Installer (Recommended)
+### 🧹 Deep Cleaning
+- User Temp
+- Windows Temp
+- Prefetch
+- Windows Update Cache
+- Recycle Bin
 
-Download and run the installer `wincu_installer.exe`.
+### ⚡ High Performance
+- Concurrent worker pool
+- Optimized I/O for large directories
+- Scales with CPU threads
 
-- Select **"Add to PATH"** during installation to run `wincu` from any terminal.
+### 🛡️ Safety First
+- **Dry-run mode** to preview changes
+- Skips critical system paths automatically
+- Graceful handling of permission errors
 
-### Option 2: Portable Executable
+### 🔐 Auto-Elevation (UAC)
+- Automatically requests Administrator privileges when required
+- Triggered only when using `--force`
 
-Download `wincu.exe` and place it anywhere in your PATH.
+### 🤖 Automation Ready
+- Optional **JSON output**
+- Script-friendly CLI design
 
-### Option 3: Build from Source
+---
 
-Requires [Go](https://go.dev/dl/) installed.
+## 📦 Installation
+
+### Option 1 — Installer (Recommended)
+
+Download and run:
+
+```
+wincu_installer.exe
+```
+
+During installation:
+- ✅ Select **“Add to PATH”** to use `wincu` globally
+
+---
+
+### Option 2 — Portable Executable
+
+1. Download `wincu.exe`
+2. Place it anywhere in your `PATH`
+
+No installation required.
+
+---
+
+### Option 3 — Build from Source
+
+**Requirements**
+- Go ≥ 1.20
+- Windows OS
 
 ```powershell
 git clone https://github.com/yourusername/wincu.git
@@ -39,7 +74,7 @@ cd wincu
 go build -ldflags="-s -w" -o wincu.exe cmd/main.go
 ```
 
-To embed the icon (requires `rsrc`):
+#### Build with Icon & Manifest (Optional)
 
 ```powershell
 go install github.com/akavel/rsrc@latest
@@ -47,61 +82,74 @@ rsrc -manifest wincu.manifest -ico assets/wincu.ico -o rsrc.syso
 go build -ldflags="-s -w" -o wincu.exe cmd/main.go
 ```
 
-## Usage
+---
 
-### Commands
+## 🚀 Usage
 
-**Scan for junk:**
+### Scan for Junk Files
 
 ```powershell
 wincu scan
 ```
 
-**Clean specific targets:**
+---
+
+### Clean Selected Targets
 
 ```powershell
 wincu clean --temp --recyclebin
 ```
 
-_(Cleans User Temp, Windows Temp, and Recycle Bin)_
+---
 
-**Preview deletion (Safe Mode):**
+### Dry-Run (Safe Preview)
 
 ```powershell
 wincu clean --all --dry-run
 ```
 
-**Force Clean (Admin + Read-only files):**
+---
+
+### Force Clean (Admin Mode)
 
 ```powershell
 wincu clean --all --force
 ```
 
-_(Triggers UAC prompt if not already Admin)_
+---
 
-### Flags
+## ⚙️ Command Flags
 
-| Flag            | Description                                          |
-| :-------------- | :--------------------------------------------------- |
-| `--all`         | Clean all supported targets                          |
-| `--temp`        | Clean User & Windows Temp folders                    |
-| `--recyclebin`  | Empty Recycle Bin                                    |
-| `--prefetch`    | Clean Prefetch files                                 |
-| `--update`      | Clean Windows Update Cache                           |
-| `--dry-run`     | Simulate cleaning without deleting                   |
-| `--force`       | Force delete (elevate permissions, delete read-only) |
-| `--threads <n>` | Set number of concurrent threads                     |
-| `--json`        | Output logs in JSON format                           |
-| `--version`     | Show version info                                    |
+| Flag              | Description                                             |
+| ----------------- | ------------------------------------------------------- |
+| `--all`           | Clean all supported targets                             |
+| `--temp`          | Clean User & Windows Temp                               |
+| `--recyclebin`    | Empty Recycle Bin                                       |
+| `--prefetch`      | Clean Prefetch files                                    |
+| `--update`        | Clean Windows Update Cache                              |
+| `--dry-run`       | Preview deletions without removing files                |
+| `--force`         | Force delete (Admin + read-only files)                  |
+| `--threads <n>`   | Number of concurrent workers                            |
+| `--json`          | Output logs in JSON format                               |
+| `--version`       | Show version information                                |
 
-## Project Structure
+---
 
-- `cmd/main.go`: Application entry point.
-- `cleaner/`: Core logic for target scanning and deletion.
-- `worker/`: Worker pool for concurrent processing.
-- `utils/`: Helper utilities (logging, UAC, etc.).
-- `assets/`: Icons and images.
+## 🗂️ Project Structure
 
-## License
+```
+wincu/
+├── cmd/
+│   └── main.go
+├── cleaner/
+├── worker/
+├── utils/
+├── assets/
+└── installer.iss
+```
 
-MIT License
+---
+
+## 📄 License
+
+MIT License © 2026
