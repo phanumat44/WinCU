@@ -24,6 +24,7 @@ Designed with **speed**, **safety**, and **automation** in mind — perfect for 
 - Prefetch
 - Windows Update Cache
 - Recycle Bin
+- Browser cache
 
 ### ⚡ High Performance
 
